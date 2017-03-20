@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript">
+  $(function () {
+    var rules = [
+      [0	,0	,0],
+      [1	,30	,60],
+      [2	,30	,60],
+      [3	,120	,180],
+      [4	,120	,180],
+      [5	,210	,360],
+      [6	,210	,360],
+      [7	,210	,360],
+      [8	,1700	,1700],
+      [9	,1700	,1700],
+      [10	,1754	,1796],
+      [11	,1754	,1796],
+      [12	,1952	,2024],
+      [13	,1952	,2024],
+      [14	,2138	,2228],
+      [15	,2138	,2228],
+      [16	,2270	,2360],
+      [17	,2270	,2360],
+      [18	,2384	,2516],
+      [19	,2384	,2516],
+      [20	,2498	,2630],
+      [21	,2498	,2630],
+      [22	,2600	,2750],
+      [23	,2600	,2750],
+      [24	,2684	,2828],
+      [25	,2684	,2828],
+      [26	,2696	,2864],
+      [27	,2696	,2864],
+      [28	,2744	,2960],
+      [29	,2744	,2960],
+      [30	,2744	,2960],
+      [31	,3044	,3410],
+      [32	,3044	,3410],
+      [33	,3206	,3650],
+      [34	,3206	,3650],
+      [35	,3446	,4040],
+      [36	,3446	,4040]
+    ],
+    datapoints = [
+      [0,0],
+      [1,30],
+      [2,59],
+      [3,125],
+      [4,162],
+      [5,249],
+      [6,281],
+      [7,302],
+      [8,1700],
+      [9,1700],
+      [10,1756],
+      [11,1789],
+      [12,2100],
+      [13,2222]
+    ],
+    projection = [
+      [13,	2222,	2222],
+      [14,	2408,	2426],
+      [15,	2408,	2426],
+      [16,	2540,	2558],
+      [17,	2540,	2558],
+      [18,	2654,	2714],
+      [19,	2654,	2714],
+      [20,	2768,	2828],
+      [21,	2768,	2828],
+      [22,	2870,	2948],
+      [23,	2870,	2948],
+      [24,	2954,	3026],
+      [25,	2954,	3026],
+      [26,	2966,	3062],
+      [27,	2966,	3062],
+      [28,	3014,	3158],
+      [29,	3014,	3158],
+      [30,	3014,	3158],
+      [31,	3314,	3608],
+      [32,	3314,	3608],
+      [33,	3476,	3848],
+      [34,	3476,	3848],
+      [35,	3716,	4238],
+      [36,	3716,	4238]
+    ];
+
+
+    Highcharts.chart('container', {
+
+      title: {
+        text: 'Shipment Example 1'
+      },
+
+      xAxis: {
+      },
+
+      yAxis: {
+        title: {
+          text: null
+        },
+        min: 0
+      },
+
+      tooltip: {
+        crosshairs: true,
+        shared: true,
+        valueSuffix: 'minutes'
+      },
+
+      legend: {
+      },
+
+      series: [{
+        name: 'Datapoints',
+        data: datapoints,
+        zIndex: 1,
+        marker: {
+          fillColor: 'white',
+          lineWidth: 2,
+          lineColor: Highcharts.getOptions().colors[0]
+        }
+      }, {
+        name: 'Projection',
+        data: projection,
+        type: 'arearange',
+        lineWidth: 0,
+        linkedTo: ':previous',
+        color: Highcharts.getOptions().colors[0],
+        fillOpacity: 0.3,
+        zIndex: 0
+      }, {
+        name: 'Range',
+        data: rules,
+        type: 'arearange',
+        lineWidth: 0,
+        linkedTo: ':previous',
+        color: Highcharts.getOptions().colors[1],
+        fillOpacity: 0.3,
+        zIndex: 0
+      }]
+    });
+  });
+  </script>
+</head>
+<body>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+  <div id="container" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
+
+</body>
+</html>
